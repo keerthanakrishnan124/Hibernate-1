@@ -31,7 +31,9 @@ public class App
     	s2.setNme("Jeeva");
     	s2.setTech("c++");
     	
-    	StudentDao.UpdateStudent(s2);
+//    	StudentDao.UpdateStudent(s2);
+    	
+    	StudentDao.deleteStudent(2);
     	
     }
 }

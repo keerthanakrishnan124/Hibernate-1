@@ -48,4 +48,16 @@ public class StudentDao {
 		sf.close();
 		System.out.println("Success");
 	}
+	
+	public static void deleteStudent(int id) {
+		SessionFactory sf=StudentDao.getSession();
+		Session session=sf.openSession();
+		Transaction t=session.beginTransaction();
+		Student s=StudentDao.getStudentById(id);
+		session.remove(s);
+		t.commit();
+		session.close();
+		sf.close();
+		System.out.println("Success");
+	}
 }
