@@ -37,4 +37,15 @@ public class StudentDao {
 		Student s=session.find(Student.class, 2);
 		return s;
 	}
+	
+	public static void UpdateStudent(Student s) {
+		SessionFactory sf=StudentDao.getSession();
+		Session session=sf.openSession();
+		Transaction t=session.beginTransaction();
+		session.merge(s);
+		t.commit();
+		session.close();
+		sf.close();
+		System.out.println("Success");
+	}
 }
