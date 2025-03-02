@@ -15,17 +15,16 @@ public class App
     {
         
     	Student s=new Student();
-    	s.setId(1);
-    	s.setNme("Diya");
-    	s.setTech("java");
+    	s.setId(2);
+    	s.setNme("Jeeva");
+    	s.setTech("Python");
     	
-    	Configuration cnfg=new Configuration();
-    	cnfg.addAnnotatedClass(com.demo.Student.class);
-    	cnfg.configure("hibernate.cfg.xml");
-    	SessionFactory sf=cnfg.buildSessionFactory();
-    	Session session=sf.openSession();
-    	Transaction transaction=session.beginTransaction();
-    	session.persist(s);
-    	transaction.commit();
+//    	StudentDao.saveStudent(s);
+    	
+    	Student s1=StudentDao.getStudentById(2);
+    	System.out.println(s1.getId());
+    	System.out.println(s1.getNme());
+    	System.out.println(s1.getTech());
+    	
     }
 }
